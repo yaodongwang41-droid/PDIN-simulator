@@ -49,6 +49,16 @@ Results are automatically saved to `.txt` files (e.g., `cycles_rrc.txt`, `Throug
 
 ---
 
+## 📊 Data Output
+
+The scripts generate `.txt` files containing the results for each routing method:
+
+* `cycles_*.txt`: Average clock cycles per traffic load point.
+* `Throughput_*.txt`: Measured network throughput.
+* `Received_*.txt`: The ratio of packets successfully delivered vs. injected.
+  
+---
+
 ## 🏃 How to Run
 
 1.  **Requirements**:
@@ -62,4 +72,5 @@ Results are automatically saved to `.txt` files (e.g., `cycles_rrc.txt`, `Throug
     ```
 
 3.  **Visualization**:
+
     To see the performance curves, uncomment the `plt.plot(...)` and `plt.show()` sections at the bottom of the scripts.
