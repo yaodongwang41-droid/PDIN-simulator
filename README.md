@@ -24,7 +24,7 @@ This suite covers a wide spectrum of network architectures, from classical direc
 
 ### 3. High-Radix Dragonfly Variants
 * **Dragonfly**: A cost-effective high-radix topology utilizing groups of fully connected routers with sparse global inter-group connectivity.
-* **Dimension Extended Dragonfly (EDD)**: Enhances local group connectivity by replacing the internal cliques with n-dimensional meshes/tori.
+* **Dimension Extended Dragonfly (DED)**: Enhances local group connectivity by replacing the internal cliques with n-dimensional meshes/tori.
 * **Recursive Dragonfly (RDF)**: A highly scalable version of Dragonfly that tiles base groups recursively to support exascale system requirements.
 
 
@@ -42,7 +42,7 @@ Each topology is organized into its own set of scripts:
 | **MiKANT** | `lantency_mikant.py` | `switch_dict.py` | `lantency_mikant.py` |
 | **Fat-Tree** | `kant_routing.py` | `kant_dict.py` | `latency.py` |
 | **Dragonfly** | `dragonfly.py` | `DF_dict.py` | `latency.py` |
-| **EDD / RDF** | `basic_routing.py` | `EDD_dict.py` / `RDF_dict.py` | `latency.py` |
+| **DED / RDF** | `basic_routing.py` | `EDD_dict.py` / `RDF_dict.py` | `latency.py` |
 
 ---
 
