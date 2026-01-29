@@ -1,13 +1,13 @@
-# Dimension Extended Dragonfly (EDD) Network Simulator
+# Dimension Extended Dragonfly (DED) Network Simulator
 
-This repository contains a Python-based simulation suite for the **Dimension Extended Dragonfly (EDD)** topology. EDD enhances the standard Dragonfly by introducing a multi-dimensional structure within each group, further optimizing local routing and network scalability.
+This repository contains a Python-based simulation suite for the **Dimension Extended Dragonfly (DED)** topology. DED enhances the standard Dragonfly by introducing a multi-dimensional structure within each group, further optimizing local routing and network scalability.
 
 Detailed:https://onlinelibrary.wiley.com/doi/10.1002/cpe.8286
 
 
 ## 🚀 Overview
 
-The EDD topology organizes routers into groups, but unlike the basic Dragonfly, routers within a group are connected via a multi-dimensional (n-dimensional) mesh/torus-like structure. This simulator tracks packet movements through these dimensions, managing inter-group global links and intra-group local links.
+The DED topology organizes routers into groups, but unlike the basic Dragonfly, routers within a group are connected via a multi-dimensional (n-dimensional) mesh/torus-like structure. This simulator tracks packet movements through these dimensions, managing inter-group global links and intra-group local links.
 
 ### Key Features
 * **N-Dimensional Intra-group Routing**: Supports multi-dimensional router layouts within each group (defined by parameters `M` and `N`).
@@ -22,7 +22,7 @@ The EDD topology organizes routers into groups, but unlike the basic Dragonfly, 
 | File | Description |
 | :--- | :--- |
 | `latency.py` | **Core Simulator**: Executes the performance test, tracks packet states, and calculates metrics. |
-| `basic_routing.py` | **Routing Demo**: Provides a hop-by-hop path demonstration and calculates shortest-path lengths for EDD. |
+| `basic_routing.py` | **Routing Demo**: Provides a hop-by-hop path demonstration and calculates shortest-path lengths for DED. |
 | `EDD_dict.py` | **Topology Generator**: Creates the router/node mapping for the dimension-extended structure. |
 
 ---
@@ -79,4 +79,5 @@ The script outputs data for each load point ($\lambda$):
     ```
 
 3.  **Visualization**:
+
     You can uncomment the `matplotlib` section at the end of `latency.py` to plot the result curves.
