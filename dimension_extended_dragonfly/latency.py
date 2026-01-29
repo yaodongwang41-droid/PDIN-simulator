@@ -1,4 +1,4 @@
-import EDD_dict as ed
+import DED_dict as ed
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -153,4 +153,5 @@ if __name__ == "__main__":
     file = open('Drop.txt', 'w')
     for v in u:
         file.write(str(v) + '\n')
+
     file.close()
