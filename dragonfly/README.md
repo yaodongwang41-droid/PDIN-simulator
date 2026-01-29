@@ -4,8 +4,6 @@ This repository contains a Python simulation suite for the **Dragonfly** interco
 
 Detailed:https://ieeexplore.ieee.org/document/4556717
 
-[Image of Dragonfly network topology]
-
 
 ## 🚀 Overview
 
@@ -81,4 +79,5 @@ The script outputs five key values per simulation step:
     To generate performance data across various traffic loads:
     ```bash
     python latency.py
+
     ```
