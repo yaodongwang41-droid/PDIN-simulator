@@ -23,7 +23,7 @@ The DED topology organizes routers into groups, but unlike the basic Dragonfly, 
 | :--- | :--- |
 | `latency.py` | **Core Simulator**: Executes the performance test, tracks packet states, and calculates metrics. |
 | `basic_routing.py` | **Routing Demo**: Provides a hop-by-hop path demonstration and calculates shortest-path lengths for DED. |
-| `EDD_dict.py` | **Topology Generator**: Creates the router/node mapping for the dimension-extended structure. |
+| `DED_dict.py` | **Topology Generator**: Creates the router/node mapping for the dimension-extended structure. |
 
 ---
 
@@ -81,3 +81,4 @@ The script outputs data for each load point ($\lambda$):
 3.  **Visualization**:
 
     You can uncomment the `matplotlib` section at the end of `latency.py` to plot the result curves.
+
