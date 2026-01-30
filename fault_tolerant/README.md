@@ -1,12 +1,12 @@
 # Fault-Tolerance Simulator
 
-This repository contains a specialized simulation suite for the **Dimension Extended Dragonfly (DED)** topology, focusing on **Fault-Tolerant Routing** and **Node-Disjoint Path** algorithms. It evaluates network resilience by simulating packet delivery success rates in the presence of random router failures.
+This repository contains a specialized simulation suite for arbitrary topologies (paths required), focusing on **Fault-Tolerant Routing** and **Node-Disjoint Path** algorithms. It evaluates network resilience by simulating packet delivery success rates in the presence of random router failures.
 
 
 
 ## 🚀 Overview
 
-Dimension Extended Dragonfly (DED) improves upon the standard Dragonfly by utilizing a multi-dimensional internal group structure. This suite implements advanced algorithms to find multiple non-overlapping (disjoint) paths between nodes, ensuring connectivity even when several routers are offline.
+The sample code shows that the Dimension Extended Dragonfly (DED) improves upon the standard Dragonfly by utilizing a multi-dimensional internal group structure. This suite implements advanced algorithms to find multiple non-overlapping (disjoint) paths between nodes, ensuring connectivity even when several routers are offline.
 
 ### Key Features
 * **Disjoint Path Algorithms**: Implements `neighbor_jump`, `global_jump`, and `multi_jump` to find multiple redundant paths.
@@ -72,5 +72,6 @@ The simulation outputs data as the failure rate $\lambda$ (percentage of faulty 
     python disjoint_path.py
     ```
     This will print the specific paths found between a random source and destination pair.
+
 
 
