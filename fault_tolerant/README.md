@@ -19,10 +19,10 @@ The sample code shows that the Dimension Extended Dragonfly (DED) improves upon 
 
 | File | Description |
 | :--- | :--- |
-| `fault_tolerant_sim.py` | **Main Entry**: Runs the Monte Carlo simulation to test success rates under different failure scenarios. |
+| `fault_tolerant_sim.py` | **Main Entry**: Runs the simulation to test success rates under given failure scenarios. |
 | `disjoint_path.py` | **Algorithm Core**: Contains the logic for finding multiple node-disjoint paths (Neighbor/Global/Multi Jump). |
 | `ded_routing.py` | **Basic Routing**: Provides the standard dimension-order routing logic for DED. |
-| `DED_dict.py` | **Topology Map**: Generates router IDs and manages the faulty router configuration. |
+| `DED_dict.py` | **Topology Map**: Generates router IDs and faulty router ids. |
 
 ---
 
@@ -33,7 +33,7 @@ The simulator compares three primary routing strategies:
 1.  **Basic Path**: The shortest deterministic path. Highly susceptible to failure if any node on the path is faulty.
 2.  **Neighbor Jump**: Leverages local neighbors within the n-dimensional group to bypass faulty nodes before attempting global travel.
 3.  **Global Jump**: An aggressive redundancy strategy that utilizes diverse global links to route through intermediate groups, enhancing the chance of reaching the destination.
-4.  **Multi Jump**: This is the most powerful algorithm in the suite. It is based on the topological principles of dragonfly-like toplogies.
+4.  **Multi Jump**: This is the most powerful algorithm in the suite. It is based on the topological principles of dragonfly-like topologies.
 
 
 
@@ -72,6 +72,7 @@ The simulation outputs data as the failure rate $\lambda$ (percentage of faulty 
     python disjoint_path.py
     ```
     This will print the specific paths found between a random source and destination pair.
+
 
 
 
