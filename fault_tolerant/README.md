@@ -2,7 +2,7 @@
 
 This repository contains a specialized simulation suite for arbitrary topologies (paths required), focusing on **Fault-Tolerant Routing** and **Node-Disjoint Path** algorithms. It evaluates network resilience by simulating packet delivery success rates in the presence of random router failures.
 
-
+Detailed:https://onlinelibrary.wiley.com/doi/10.1002/cpe.8286
 
 ## 🚀 Overview
 
@@ -72,6 +72,7 @@ The simulation outputs data as the failure rate $\lambda$ (percentage of faulty 
     python disjoint_path.py
     ```
     This will print the specific paths found between a random source and destination pair.
+
 
 
 
