@@ -20,7 +20,7 @@ This suite covers a wide spectrum of network architectures, from classical direc
 
 ### 2. Hierarchical Tree Topologies
 * **k-ary n-tree (Fat-Tree)**: A standard multi-stage tree topology using **Nearest Common Ancestor (NCA)** routing with adaptive upward path selection.
-* **Mirrored k-ary n-tree (MiKANT)**: An optimized tree structure that enhances path diversity and balances load between mirrored branches.
+* **Mirrored k-ary n-tree (MiKANT)**: An optimized tree structure that effectively reduced average distance and cost through mirror structure.
 
 ### 3. High-Radix Dragonfly Variants
 * **Dragonfly**: A cost-effective high-radix topology utilizing groups of fully connected routers with sparse global inter-group connectivity.
