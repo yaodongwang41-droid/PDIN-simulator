@@ -42,9 +42,10 @@ You can customize the network scale and simulation intensity in the `if __name__
 
 The simulator uses a `mark` state machine to track each packet's journey:
 1. **Upward Phase**: Packets climb the tree to reach a common ancestor or the root level (`sl` increases).
-2. **Turnaround**: Once the highest necessary point is reached, the packet switches to the downward phase.
-3. **Downward Phase**: Packets descend towards the specific target group (`sg`) and destination node (`sl` decreases).
-4. **Flow Control**: If the target switch buffer is full (`>= max_p`), the packet is held in the current switch, simulating network back-pressure.
+2. **Cross Group**: If the source and destination nodes are in different groups, the current packet will be forwarded to the distinct group via the highest level.
+3. **Turnaround**: Once the highest necessary point is reached, the packet switches to the downward phase.
+4. **Downward Phase**: Packets descend towards the specific target group (`sg`) and destination node (`sl` decreases).
+5. **Flow Control**: If the target switch buffer is full (`>= max_p`), the packet is held in the current switch, simulating network back-pressure.
 
 ---
 
@@ -53,7 +54,7 @@ The simulator uses a `mark` state machine to track each packet's journey:
 The simulation generates data points printed to the console and stored in arrays (`y`, `z`, `w`), which can be used to plot:
 - **Latency vs. Traffic Load**
 - **Throughput vs. Traffic Load**
-- **Delivery Success Ratio**
+- **Received Ratio**
 
 ---
 
@@ -61,4 +62,5 @@ The simulation generates data points printed to the console and stored in arrays
 
 1. **Prerequisites**:
    ```bash
+
    pip install numpy matplotlib
