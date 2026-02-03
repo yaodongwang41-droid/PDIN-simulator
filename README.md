@@ -24,8 +24,8 @@ This suite covers a wide spectrum of network architectures, from classical direc
 
 ### 3. High-Radix Dragonfly Variants
 * **Dragonfly**: A cost-effective high-radix topology utilizing groups of fully connected routers with sparse global inter-group connectivity.
-* **Dimension Extended Dragonfly (DED)**: Enhances local group connectivity by replacing the internal cliques with n-dimensional meshes/tori.
-* **Recursive Dragonfly (RDF)**: A highly scalable version of Dragonfly that tiles base groups recursively to support exascale system requirements.
+* **Dimension Extended Dragonfly (DED)**: Reducing the hardware cost and improving flexibility by replacing the internal cliques with an n-dimensional matrix.
+* **Recursive Dragonfly (RDF)**: A highly scalable version of Dragonfly that tiles base groups recursively to fit massive interconnection networks by the recursive method.
 
 
 
