@@ -7,7 +7,7 @@ Detailed:https://onlinelibrary.wiley.com/doi/10.1002/cpe.8286
 
 ## 🚀 Overview
 
-The DED topology organizes routers into groups, but unlike the basic Dragonfly, routers within a group are connected via a multi-dimensional (n-dimensional) mesh/torus-like structure. This simulator tracks packet movements through these dimensions, managing inter-group global links and intra-group local links.
+The DED topology organizes routers into groups, but unlike the basic Dragonfly, routers within a group are connected via a multi-dimensional (n-dimensional) matrix structure. This simulator tracks packet movements through these dimensions, managing inter-group global links and intra-group local links.
 
 ### Key Features
 * **N-Dimensional Intra-group Routing**: Supports multi-dimensional router layouts within each group (defined by parameters `M` and `N`).
@@ -81,4 +81,5 @@ The script outputs data for each load point ($\lambda$):
 3.  **Visualization**:
 
     You can uncomment the `matplotlib` section at the end of `latency.py` to plot the result curves.
+
 
