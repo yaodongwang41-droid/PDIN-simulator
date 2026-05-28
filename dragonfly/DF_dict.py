@@ -12,15 +12,12 @@ def dct(m, l):
 
 def config(num, k, m, l):
     out = []
-    a = list(dct(m, l).keys())    # total router IDs
+    a = list(dct(m, l).keys())
     for i in a:
-        node = list(i)
         for j in range(k):
-            node.append(j)
-            out.append(node)
+            out.append(list(i) + [j])
     random.shuffle(out)
-    out = out[0:num]
-    return out
+    return out[:num]
 
 
 if __name__ == "__main__":
