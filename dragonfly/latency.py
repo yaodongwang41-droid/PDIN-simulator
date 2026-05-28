@@ -2,13 +2,13 @@ import DF_dict as dd
 import numpy as np
 
 
-def routing(s, d, dct, ind, max_p=12, length=0):
+def routing(s, d, dct, ind, length=0):
     if ind == -1:   # packet in destination node
         return length, s, dct, ind
     elif ind == 0:  # packet in source node
         temp = s.copy()
         del temp[len(temp) - 1]
-        rid = '0' * (len(str(L * M + 1)) - len(str(temp[0]))) + "".join([str(x) for x in temp])
+        rid = tuple(temp)
         if dct[rid] < max_p:
             dct[rid] += 1
             length += 1
@@ -19,8 +19,8 @@ def routing(s, d, dct, ind, max_p=12, length=0):
         index = (d[0]-int(d[0] > s[0]))// L  # target router ID
         if s[1] != index:  # to the target router of ith dimension
             temp = [s[0], index]
-            rid = '0' * (len(str(L * M + 1)) - len(str(temp[0]))) + "".join([str(x) for x in temp])
-            cid = '0' * (len(str(L * M + 1)) - len(str(s[0]))) + "".join([str(x) for x in s])
+            rid = tuple(temp)
+            cid = tuple(s)
             if dct[rid] < max_p:
                 dct[cid] -= 1
                 dct[rid] += 1
@@ -29,8 +29,8 @@ def routing(s, d, dct, ind, max_p=12, length=0):
             return length, s, dct, ind
         else:  # to the target group
             temp = [d[0], (s[0]-int(d[0] < s[0]))// L]
-            rid = '0' * (len(str(L * M + 1)) - len(str(temp[0]))) + "".join([str(x) for x in temp])
-            cid = '0' * (len(str(L * M + 1)) - len(str(s[0]))) + "".join([str(x) for x in s])
+            rid = tuple(temp)
+            cid = tuple(s)
             if dct[rid] < max_p:
                 dct[cid] -= 1
                 dct[rid] += 1
@@ -39,8 +39,8 @@ def routing(s, d, dct, ind, max_p=12, length=0):
             return length, s, dct, ind
     elif s[1] != d[1]:  # the same group but not destination router
             temp = [s[0], d[1]]
-            rid = '0' * (len(str(L * M + 1)) - len(str(temp[0]))) + "".join([str(x) for x in temp])
-            cid = '0' * (len(str(L * M + 1)) - len(str(s[0]))) + "".join([str(x) for x in s])
+            rid = tuple(temp)
+            cid = tuple(s)
             if dct[rid] < max_p:
                 dct[cid] -= 1
                 dct[rid] += 1
@@ -48,15 +48,11 @@ def routing(s, d, dct, ind, max_p=12, length=0):
                 s = temp
             return length, s, dct, ind
     else:           # in destination router
-        dct['0' * (len(str(L * M + 1)) - len(str(s[0]))) + "".join([str(x) for x in s])] -= 1
+        dct[tuple(s)] -= 1
         s.append(d[len(d)-1])
         ind = 2
         length += 1
     return length, s, dct, ind
-
-
-# def rid(y):
-#     return '0' * (len(str(L * M + 1)) - len(str(y[0]))) + "".join([str(x) for x in y])
 
 
 def packet(lam):
@@ -78,7 +74,7 @@ def packet(lam):
             # ----------------------------------------------------------------
             if cycle - i//times > thr and mark[i] != -1:  # drop packets
                 if mark[i] != 0:
-                    dct['0' * (len(str(L * M + 1)) - len(str(S[i][0]))) + "".join([str(x) for x in S[i]])] -= 1
+                    dct[tuple(S[i])] -= 1
                 mark[i] = -1
                 drop += 1
             # ---------------------------------------------------------------
@@ -103,6 +99,7 @@ if __name__ == "__main__":
     K = 4     # number of nodes for each router
     M = 8      # number of routers in each group
     L = 5       # number of global links for each router
+    max_p = 12    # maximum buffer slots
 
     lam = np.linspace(0.05, 0.9, 18)
     number = K*(L*M+1)*M
