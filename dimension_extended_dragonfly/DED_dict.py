@@ -8,10 +8,9 @@ def k_ary(x, k, n):     # k-ary conversion
         t1 = x % k
         x = x // k
         li.append(t1)
-    out = ''
-    for i in li[:: -1]:
-        out += str(i)
-    out = '0' * (n-len(out)) + out
+    out = li[::-1]
+    out = [0] * (n - len(out)) + out
+
     return out
 
 
@@ -20,32 +19,53 @@ def dct(m, n, l):
     for i in range(l*m**n+1):  # number of groups
         for j in range(m**n):    # number of routers in one group
             temp = k_ary(j, m, n)
-            router ='0' * (len(str(l*m**n+1)) - len(str(i))) + str(i) + temp
-            out[router] = 0
+            router = [i]+temp
+            rid = tuple(router)
+            out[rid] = 0
     return out
 
 
-def config(lam, k, m, n, l):
+def config(num, k, m, n, l):
     out = []
-    a = list(dct(m, n, l).keys())    # total router IDs
-    node = np.zeros(n+2)
+    a = list(dct(m, n, l).keys())
+    node = np.zeros(n + 2, dtype=int)
     for i in a:
-        node[0] = int(i[0:len(str(l*m**n+1))])
-        r = [int(x) for x in i[len(str(l*m**n+1)):len(i)]]
+        node[0:n+1] = i
         for j in range(k):
-            node[1:n+1], node[len(node)-1] = r, j
-            out.append(list([int(x) for x in node]))
+            node[n+1] = j
+            out.append(node.tolist())
     random.shuffle(out)
-    out = out[0:int(lam * (l*m**n+1)* m**n)*k]
-    return out
+    return out[:num]
+
+
+def routing_path(s, d, L):
+    path = []
+    if len(s) == len(d):  # packet in source node
+        s = s[0:2]
+        path.append(s.copy())
+    if s[0] != d[0]:   # different groups
+        if s[1] != (d[0] - int(d[0] > s[0])) // L:  # not in target router
+            s[1] = (d[0] - int(d[0] > s[0])) // L
+            path.append(s.copy())
+        # in target group
+        s[1] = (s[0] - int(d[0] < s[0])) // L
+        s[0] = d[0]
+        path.append(s.copy())
+    # the same group
+    if s[1] != d[1]:   # not in destination router
+        s[1] = d[1]
+        path.append(s.copy())
+    return path
 
 
 if __name__ == "__main__":
     K = 1
-    M = 10
+    M = 11
     N = 1
     L = 1
+    lam = 0.2  # load
+    num = int(lam * (L*M**N+1)* M**N*K)    # number of nodes
     dict = dct(M, N, L)
     print(len(dict), dict)
-    res = config(0.2, K, M, N, L)
+    res = config(num, K, M, N, L)
     print(len(res), res)
